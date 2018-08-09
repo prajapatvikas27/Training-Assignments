@@ -27,43 +27,6 @@ class MyarrayList implements Runnable{
 		System.out.println("Time to traverse elements in ArrayList:" + op.traverse(al));
 	}
 
-	
-
-/*	private void traverse(ArrayList<String> al) {
-		long startTime = System.nanoTime();
-		Iterator<String> itr = al.iterator();
-		while(itr.hasNext()) {
-			System.out.println(itr.next());
-		}
-		long endTime   = System.nanoTime();
-		long totalTime = endTime - startTime;
-		System.out.println("Time taken to traverse ArrayList:" + totalTime);
-	}
-
-
-
-	private void sort(ArrayList<String> al2) {
-
-		long startTime = System.nanoTime();
-		Collections.sort(al2);
-		long endTime   = System.nanoTime();
-		long totalTime = endTime - startTime;
-		System.out.println("Time required by ArrayList for natural sorting:" + totalTime);
-	}
-
-
-
-	public void insert(String[] collectionString) {
-		long startTime = System.nanoTime();
-		for(String str : collectionString) {
-			al.add(str);
-		}
-		long endTime   = System.nanoTime();
-		long totalTime = endTime - startTime;
-		System.out.println("Arraylist required time to insert :" + totalTime);
-	}
-	
-	*/
 }
 
 class MyLinkedList implements Runnable{
@@ -82,41 +45,6 @@ class MyLinkedList implements Runnable{
 		System.out.println("Time to traverse elements in LinkedList:" + op.traverse(ll));
 	}
 
-/*	private void traverese(LinkedList<String> ll) {
-
-		long startTime = System.nanoTime();
-		
-		Iterator itr = ll.iterator();
-		while(itr.hasNext()) {
-			System.out.println(itr.next());
-		}
-		
-		long endTime   = System.nanoTime();
-		long totalTime = endTime - startTime;
-		System.out.println("Time taken to traverse linked list:" + totalTime);
-	}
-*/
-	/*private void sort(LinkedList<String> ll) {
-		long startTime = System.nanoTime();
-		Collections.sort(ll);
-		long endTime   = System.nanoTime();
-		long totalTime = endTime - startTime;
-		System.out.println("Time taken to sort LinkedLsit:" + totalTime);
-	}
-*/
-/*	private void insert(String[] collectionString) {
-		
-		long startTime = System.nanoTime();
-		
-		for(String str : collectionString) {
-			ll.add(str);
-		}
-		long endTime   = System.nanoTime();
-		long totalTime = endTime - startTime;
-		System.out.println("Time taken to insert elements in Linked list:" + totalTime);
-	}
-	
-	*/
 }
 
 class Operation{

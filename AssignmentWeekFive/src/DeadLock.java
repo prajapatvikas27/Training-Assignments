@@ -1,5 +1,7 @@
 
 class A{
+	
+	
 	public synchronized void d1(B b) {
 		System.out.println(" A d1() method starts execution");
 		try {
@@ -33,6 +35,9 @@ class B{
 }
 
 class MyThread extends Thread{
+	
+	
+	
 	A a =new A();
 	B b = new B();
 	public void m1() {
@@ -56,3 +61,9 @@ public class DeadLock {
 	}
 
 }
+
+
+
+
+
+

@@ -12,10 +12,12 @@ class MyarrayList implements Runnable{
 	ArrayList<String> al = new ArrayList<>();
 	String[] collectionString;
 	Operation op;
+	String threadName;
 	
 	public MyarrayList(Operation op, String[] collectionString) {
 		this.collectionString = collectionString;
 		this.op = op;
+	
 	}
 
 
@@ -53,40 +55,63 @@ class Operation{
 	ReentrantLock l = new ReentrantLock();
 	
 	public long traverse(List<?> list) {
-		l.lock();	
-		long startTime = System.nanoTime();
-		
-		Iterator itr = list.iterator();
-		while(itr.hasNext()) {
-			System.out.println(itr.next());
+		l.lock();
+		System.out.println(Thread.currentThread().getName()+" got traversal lock");
+		try {
+			
+			long startTime = System.nanoTime();
+			
+			Iterator itr = list.iterator();
+			while(itr.hasNext()) {
+				System.out.println(itr.next());
+			}
+			
+			long endTime   = System.nanoTime();
+			long totalTime = endTime - startTime;
+			
+			return totalTime;
+		}
+		finally {
+			System.out.println(Thread.currentThread().getName()+" releases traversal lock");
+			l.unlock();
 		}
 		
-		long endTime   = System.nanoTime();
-		long totalTime = endTime - startTime;
-		l.unlock();
-		return totalTime;
 	}
 
 	public long sort(List<String> list) {
 		l.lock();
-		long startTime = System.nanoTime();
-		long endTime   = System.nanoTime();
-		Collections.sort(list);
-		long totalTime = endTime - startTime;
-		l.unlock();
-		return totalTime;
+		System.out.println(Thread.currentThread().getName()+" got  sort  lock");
+		try {
+			long startTime = System.nanoTime();
+			long endTime   = System.nanoTime();
+			Collections.sort(list);
+			long totalTime = endTime - startTime;
+			
+			return totalTime;
+		}finally {
+			System.out.println(Thread.currentThread().getName()+" released sort lock");
+			l.unlock();
+		}
 	}
 
 	public long insert(String[] collectionString, List<String> list) {
 		l.lock();
-		long startTime = System.nanoTime();
-		for(String str : collectionString) {
-			list.add(str);
+		System.out.println(Thread.currentThread().getName()+" got insert lock");
+		try {
+			long startTime = System.nanoTime();
+			for(String str : collectionString) {
+				list.add(str);
+			}
+			long endTime   = System.nanoTime();
+			long totalTime = endTime - startTime;
+			
+			return totalTime;
 		}
-		long endTime   = System.nanoTime();
-		long totalTime = endTime - startTime;
-		l.unlock();
-		return totalTime;
+		finally {
+			System.out.println(Thread.currentThread().getName()+" released insert lock");
+			l.unlock();
+		}
+	
 	}
 	
 }

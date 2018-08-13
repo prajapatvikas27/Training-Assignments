@@ -96,7 +96,7 @@ class Player implements Runnable{
 			System.out.println(playerName + " Kill count:" + killCount);
 			afterDeath.playerDeath.signalAll();
 		
-	}
+	}	
 
 	
 }

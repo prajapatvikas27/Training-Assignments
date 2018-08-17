@@ -33,8 +33,10 @@ public class CallableStatementDemo {
 					case 2:
 						
 						getBooksInPriceRange(bookSellerDbConnection);
+						break;
 						
 					default:
+						System.out.println("fsfsFAs");
 						break;
 					}
 				}	
@@ -59,11 +61,16 @@ public class CallableStatementDemo {
 					prepareCall(getBooksInPriceRangeCallableQuery,
 							ResultSet.TYPE_SCROLL_SENSITIVE,
 							ResultSet.CONCUR_UPDATABLE);
+			System.out.println("Enter starting price");
+			startingPrice = scan.nextFloat();
+
+			System.out.println("Enter end Price");
+			endPrice = scan.nextFloat();
 			getBooksInPriceRangeCallableStatement.setFloat(1, startingPrice);
 			getBooksInPriceRangeCallableStatement.setFloat(2, endPrice);
 			
 			ResultSet rs = getBooksInPriceRangeCallableStatement.executeQuery();
-			
+			System.out.println("The available books are:-");
 			while(rs.next()) {
 				System.out.println(rs.getString("Title"));
 			}

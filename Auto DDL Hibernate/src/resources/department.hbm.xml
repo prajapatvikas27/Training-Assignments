@@ -1,0 +1,16 @@
+	
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+    
+    <class name = "beans.Department" table = "Department" schema = "system" >
+    
+    <id name = "did"></id>
+    <property name = "dname"></property>
+    
+    
+    </class>
+    
+    </hibernate-mapping>

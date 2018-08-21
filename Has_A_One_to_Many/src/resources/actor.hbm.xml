@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+    
+    
+    <class name = "beans.Actor" table = "Actor" schema = "ORM">
+    
+    	<id name = "aid"></id>
+		<property name="actorName"></property>
+ 		<set name = "movies" cascade = "all">
+ 		<key column = "aid"></key>
+ 		<one-to-many class = "beans.Movies" />
+ 		</set>   	
+    </class>
+    
+    
+    
+    </hibernate-mapping>

@@ -1,5 +1,3 @@
-package controller;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -67,10 +65,10 @@ public class RegFormServlet extends HttpServlet {
 			String address = (String) httpSession.getAttribute("address");
 			
 			
-			String url = "jdbc:mysql://localhost:3306/aadhar";
-			String user = "root";
-			String password = "ITT@123456";
-			String jdbcDriverClassName = "com.mysql.jdbc.Driver";
+		String user = request.getServletContext().getInitParameter("user");
+		String password = request.getServletContext().getInitParameter("password");
+		String jdbcDriverClassName = request.getServletContext().getInitParameter("driver");
+		String url = request.getServletContext().getInitParameter("url");
 			
 			try {
 				Class.forName(jdbcDriverClassName);

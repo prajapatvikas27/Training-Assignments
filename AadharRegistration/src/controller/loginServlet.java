@@ -22,11 +22,11 @@ public class loginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		PrintWriter out = response.getWriter();
-		
-		String url = "jdbc:mysql://localhost:3306/aadhar";
-		String user = "root";
-		String password = "ITT@123456";
-		String jdbcDriverClassName = "com.mysql.jdbc.Driver";
+		String user = request.getServletContext().getInitParameter("user");
+		String password = request.getServletContext().getInitParameter("password");
+		String jdbcDriverClassName = request.getServletContext().getInitParameter("driver");
+		String url = request.getServletContext().getInitParameter("url");
+	
 		
 		String name = request.getParameter("name");
 		String userPassword = request.getParameter("password");

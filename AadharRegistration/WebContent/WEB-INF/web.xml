@@ -780,4 +780,25 @@ standard deployment descriptor.
   <welcome-file-list>
     <welcome-file>home.html</welcome-file>
   </welcome-file-list>
+  
+ <context-param>
+    <param-name>driver</param-name>
+    <param-value>com.mysql.jdbc.Driver</param-value>
+</context-param>
+
+ <context-param>
+    <param-name>url</param-name>
+    <param-value>jdbc:mysql://localhost:3306/aadhar</param-value>
+</context-param>
+
+ <context-param>
+    <param-name>user</param-name>
+    <param-value>root</param-value>
+</context-param>
+
+ <context-param>
+    <param-name>password</param-name>
+    <param-value>ITT@123456</param-value>
+</context-param>
+
 </web-app>
